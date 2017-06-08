@@ -59,5 +59,6 @@ char			**ft_new_square(int n);
 char			**ft_put_tetra(char **sq, int **tet, t_type test, int sq_s);
 char			**ft_rm_tetra(char **square, int **tetra, int pos, int sq_s);
 int				***ft_tab_to_int(char **tetra, int nb_tetra);
+void			ft_print_solved(t_type3 s);
 
 #endif

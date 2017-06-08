@@ -21,7 +21,8 @@ SRC = ft_tetra_nb_char.c \
 	  ft_new_square.c \
 	  ft_put_tetra.c \
 	  ft_rm_tetra.c \
-	  ft_tab_to_int.c
+	  ft_tab_to_int.c \
+	  ft_print_solved.c
 
 CC = gcc
 HEADER = ./libft/libft.a

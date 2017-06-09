@@ -6,13 +6,13 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 16:13:51 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 16:12:06 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/09 17:30:25 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
 
-int		ft_tetra_check(char *tetra, int i, int l)
+static int		ft_tetra_check(char *tetra, int i, int l)
 {
 	int		la;
 
@@ -31,7 +31,7 @@ int		ft_tetra_check(char *tetra, int i, int l)
 	return (l);
 }
 
-int		ft_check_tetra(char *tetra)
+int				ft_check_tetra(char *tetra)
 {
 	int		i;
 	int		l;

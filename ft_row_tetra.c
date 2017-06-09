@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tab_to_int.c                                    :+:      :+:    :+:   */
+/*   ft_row_tetra.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/02 16:45:40 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 17:33:35 by llorgere         ###   ########.fr       */
+/*   Created: 2017/06/09 17:06:37 by llorgere          #+#    #+#             */
+/*   Updated: 2017/06/09 17:33:20 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
 
-int		***ft_tab_to_int(char **tetra, int nb_tetra)
+char	**ft_row_tetra(char *tetra)
 {
-	int		i;
-	int		***tab;
+	t_type2	ro;
 
-	if (!(tab = (int ***)malloc(sizeof(int **) * nb_tetra)))
+	if (!(ro.tab = (char **)malloc(sizeof(char *) * 4)))
 		return (NULL);
-	i = 0;
-	while (i < nb_tetra)
+	ro.row = 0;
+	ro.i = 0;
+	ro.j = 4;
+	while (ro.i < 19)
 	{
-		tab[i] = ft_coor_tetra(ft_row_tetra(tetra[i]));
-		i++;
+		ro.col = 0;
+		if (!(ro.tab[ro.row] = (char *)malloc(sizeof(char) * 5)))
+			return (NULL);
+		while (ro.i < ro.j)
+		{
+			ro.tab[ro.row][ro.col] = tetra[ro.i];
+			ro.col++;
+			ro.i++;
+		}
+		ro.tab[ro.row][ro.col] = '\0';
+		ro.row++;
+		ro.i = ro.i + 1;
+		ro.j = ro.i + 4;
 	}
-	return (tab);
+	return (ro.tab);
 }

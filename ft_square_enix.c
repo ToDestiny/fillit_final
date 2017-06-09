@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_square_enix.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/11 17:32:53 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 16:46:01 by llorgere         ###   ########.fr       */
+/*   Created: 2017/06/09 17:17:11 by llorgere          #+#    #+#             */
+/*   Updated: 2017/06/09 17:33:25 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libfil.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_type3	ft_square_enix(t_type3 s)
 {
-	size_t			i;
-	unsigned char	*tmp;
-
-	i = 0;
-	tmp = (unsigned char *)s;
-	while (i < n)
+	while (ft_backtracking(s.square, s.sq_s, s.coor, s.nb_tetra) != 1)
 	{
-		if (tmp[i] == (unsigned char)c)
-			return (void *)(&(s[i]));
-		i++;
+		s.sq_s++;
+		s.square = ft_new_square(s.sq_s);
 	}
-	return (NULL);
+	return (s);
 }

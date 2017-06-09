@@ -6,41 +6,13 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/23 15:26:45 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/07 17:35:44 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/09 17:32:50 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
 
-char	**ft_row_tetra(char *tetra)
-{
-	t_type2	ro;
-
-	if (!(ro.tab = (char **)malloc(sizeof(char *) * 4)))
-		return (NULL);
-	ro.row = 0;
-	ro.i = 0;
-	ro.j = 4;
-	while (ro.i < 19)
-	{
-		ro.col = 0;
-		if (!(ro.tab[ro.row] = (char *)malloc(sizeof(char) * 5)))
-			return (NULL);
-		while (ro.i < ro.j)
-		{
-			ro.tab[ro.row][ro.col] = tetra[ro.i];
-			ro.col++;
-			ro.i++;
-		}
-		ro.tab[ro.row][ro.col] = '\0';
-		ro.row++;
-		ro.i = ro.i + 1;
-		ro.j = ro.i + 4;
-	}
-	return (ro.tab);
-}
-
-int		ft_ini(t_type4 *s)
+static int		ft_ini(t_type4 *s)
 {
 	s->sq = 0;
 	s->row = 0;
@@ -53,7 +25,7 @@ int		ft_ini(t_type4 *s)
 	return (1);
 }
 
-int		ft_end(t_type4 *s)
+static int		ft_end(t_type4 *s)
 {
 	if (!(s->coor[s->sq] = (int *)malloc(sizeof(int) * 2)))
 		return (0);
@@ -63,7 +35,7 @@ int		ft_end(t_type4 *s)
 	return (1);
 }
 
-int		**ft_coor_tetra(char **tetra)
+int				**ft_coor_tetra(char **tetra)
 {
 	t_type4 s;
 

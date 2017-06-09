@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:44:49 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/07 17:35:41 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/09 17:26:20 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ char			**ft_put_tetra(char **sq, int **tet, t_type test, int sq_s);
 char			**ft_rm_tetra(char **square, int **tetra, int pos, int sq_s);
 int				***ft_tab_to_int(char **tetra, int nb_tetra);
 void			ft_print_solved(t_type3 s);
+t_type3			ft_square_enix(t_type3 s);
 
 #endif

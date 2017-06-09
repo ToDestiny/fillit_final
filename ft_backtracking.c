@@ -6,13 +6,13 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 16:00:52 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/07 17:19:41 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/09 18:29:44 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
 
-char	**ft_back_valid(t_type *test, char **sq, int ***tet, int sq_s)
+static char	**ft_back_valid(t_type *test, char **sq, int ***tet, int sq_s)
 {
 	sq = ft_put_tetra(sq, tet[test->num_te], *test, sq_s);
 	(test->pos_tet[test->num_te]) = (test->pos);
@@ -21,7 +21,7 @@ char	**ft_back_valid(t_type *test, char **sq, int ***tet, int sq_s)
 	return (sq);
 }
 
-char	**ft_back_invalid(t_type *test, char **sq, int sq_s, int ***tet)
+static char	**ft_back_invalid(t_type *test, char **sq, int sq_s, int ***tet)
 {
 	test->num_te--;
 	test->pos = test->pos_tet[test->num_te];
@@ -30,7 +30,7 @@ char	**ft_back_invalid(t_type *test, char **sq, int sq_s, int ***tet)
 	return (sq);
 }
 
-int		ft_backtracking(char **sq, int sq_s, int ***tet, int nb_tet)
+int			ft_backtracking(char **sq, int sq_s, int ***tet, int nb_tet)
 {
 	t_type	test;
 

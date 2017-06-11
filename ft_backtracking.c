@@ -6,11 +6,12 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 16:00:52 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 18:29:44 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/11 19:35:48 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
+#include <stdio.h>
 
 static char	**ft_back_valid(t_type *test, char **sq, int ***tet, int sq_s)
 {
@@ -36,9 +37,11 @@ int			ft_backtracking(char **sq, int sq_s, int ***tet, int nb_tet)
 
 	test.pos = 0;
 	test.num_te = 0;
-	test.pos_tet = (int*)malloc(sizeof(int) * nb_tet);
+	if(!(test.pos_tet = (int*)malloc(sizeof(int) * nb_tet)))
+			return (0);
 	while (test.num_te < nb_tet)
 	{
+		printf("whileeeeewhileeee\n");
 		if (ft_check_posi(sq, tet[test.num_te], test.pos, sq_s) == 1)
 		{
 			sq = ft_back_valid(&(test), sq, tet, sq_s);
@@ -53,6 +56,7 @@ int			ft_backtracking(char **sq, int sq_s, int ***tet, int nb_tet)
 				return (-1);
 			sq = ft_back_invalid(&(test), sq, sq_s, tet);
 		}
+		sleep(1);
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 16:13:51 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 17:30:25 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/11 19:39:44 by acolas           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,21 @@ int				ft_check_tetra(char *tetra)
 	int		i;
 	int		l;
 	int		j;
+	int		count_diese;
 
 	i = 0;
 	j = i + 4;
 	l = 0;
+	count_diese = 0;
 	while (i <= 19)
 	{
 		while (i < j && (tetra[i] == '.' || tetra[i] == '#'))
 		{
 			if (tetra[i] == '#')
+			{
+				count_diese++;
 				l = ft_tetra_check(tetra, i, l);
+			}
 			i++;
 		}
 		if (tetra[i] != '\n' && i != j)
@@ -53,7 +58,7 @@ int				ft_check_tetra(char *tetra)
 		i++;
 		j = i + 4;
 	}
-	if (l == 6 || l == 8)
+	if ((l == 6 || l == 8) && count_diese == 4)
 		return (1);
 	else
 		return (0);

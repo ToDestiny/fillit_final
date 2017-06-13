@@ -6,59 +6,56 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 16:13:51 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/11 19:39:44 by acolas           ###   ########.fr       */
+/*   Updated: 2017/06/12 17:52:47 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
 
-static int		ft_tetra_check(char *tetra, int i, int l)
+static int		ft_tetra_check(char *tetra, t_type5 *s)
 {
 	int		la;
 
+	s->count_diese++;
 	la = 0;
-	if (tetra[i - 1] == '#')
+	if (tetra[s->i - 1] == '#')
 		la++;
-	if (tetra[i + 1] == '#')
+	if (tetra[s->i + 1] == '#')
 		la++;
-	if (tetra[i - 5] == '#')
+	if (tetra[s->i - 5] == '#')
 		la++;
-	if (tetra[i + 5] == '#')
+	if (tetra[s->i + 5] == '#')
 		la++;
 	if (la == 0)
 		return (9);
-	l = l + la;
-	return (l);
+	s->l = s->l + la;
+	return (s->l);
 }
 
 int				ft_check_tetra(char *tetra)
 {
-	int		i;
-	int		l;
-	int		j;
-	int		count_diese;
+	t_type5 s;
 
-	i = 0;
-	j = i + 4;
-	l = 0;
-	count_diese = 0;
-	while (i <= 19)
+	s.i = 0;
+	s.j = s.i + 4;
+	s.l = 0;
+	s.count_diese = 0;
+	while (s.i <= 19)
 	{
-		while (i < j && (tetra[i] == '.' || tetra[i] == '#'))
+		while (s.i < s.j && (tetra[s.i] == '.' || tetra[s.i] == '#'))
 		{
-			if (tetra[i] == '#')
+			if (tetra[s.i] == '#')
 			{
-				count_diese++;
-				l = ft_tetra_check(tetra, i, l);
+				s.l = ft_tetra_check(tetra, &(s));
 			}
-			i++;
+			s.i++;
 		}
-		if (tetra[i] != '\n' && i != j)
+		if (tetra[s.i] != '\n' && s.i != s.j)
 			return (0);
-		i++;
-		j = i + 4;
+		s.i++;
+		s.j = s.i + 4;
 	}
-	if ((l == 6 || l == 8) && count_diese == 4)
+	if ((s.l == 6 || s.l == 8) && s.count_diese == 4)
 		return (1);
 	else
 		return (0);

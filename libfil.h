@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 14:44:49 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 17:26:20 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/12 17:37:19 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef struct	s_type4
 	int		col;
 	int		sq;
 }				t_type4;
+typedef struct	s_type5
+{
+	int		i;
+	int		l;
+	int		j;
+	int		count_diese;
+}				t_type5;
 char			**ft_row_tetra(char *tetra);
 int				**ft_coor_tetra(char **tetra);
 char			**ft_new_square(int n);

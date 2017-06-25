@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/11 14:33:09 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/12 17:04:34 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/13 17:01:29 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int ac, char **av)
 	s.sq_s = 2;
 	if (ac != 2)
 	{
-		ft_putstr("usage : <exe> <map>\n");
+		ft_putstr("usage : ./fillit <map>\n");
 		return (0);
 	}
 	if (ft_tetra_nb_char(av[1]) == 0 ||

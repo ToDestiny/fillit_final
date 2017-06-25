@@ -6,7 +6,7 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/15 12:10:57 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/09 17:33:43 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/21 17:47:04 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		ft_tetra_nb_char(char *file)
 	ret = 0;
 	while (read(fd, buff, BUFF_SIZE) != 0)
 		ret++;
+	close(fd);
 	while (n < ret && n < 545)
 		n = n + 21;
 	if (n == ret)
@@ -37,5 +38,4 @@ int		ft_tetra_nb_char(char *file)
 	{
 		return (0);
 	}
-	close(fd);
 }

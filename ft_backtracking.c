@@ -6,12 +6,11 @@
 /*   By: llorgere <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 16:00:52 by llorgere          #+#    #+#             */
-/*   Updated: 2017/06/12 17:44:37 by llorgere         ###   ########.fr       */
+/*   Updated: 2017/06/21 17:45:10 by llorgere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libfil.h"
-#include <stdio.h>
 
 static char	**ft_back_valid(t_type *test, char **sq, int ***tet, int sq_s)
 {
